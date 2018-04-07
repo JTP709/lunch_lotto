@@ -1,30 +1,5 @@
-//TODO: move to redux
-import {testData} from '../testData';
-
-const initialState = {
-  restaurants: testData.restaurants,
-  winner: 'Push the Button!', 
-  filters:{
-    Type: {
-      Sushi: true,
-      Za: true,
-      Hamburgers: true,
-      MexicanAsian: true,
-      Cafe: true
-    },
-    Price: {
-      $: true,
-      $$: true,
-      $$$: true
-    },
-    Distance: {
-      Walking: true,
-      Driving: true,
-      Flying: true
-    },
-  },
-  filteredList: testData.restaurants
-}
+//TODO: hook up firebase
+import initialState from './initialState';
 
 const appReducer = (state = initialState, action) => {
   switch(action.type) {
@@ -73,7 +48,8 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         filters: initialState.filters,
-        filteredList: state.restaurants
+        filteredList: state.restaurants,
+        winner: initialState.winner
       }
     default:
       return state;

@@ -10,3 +10,11 @@
 .glyphicon {
 	padding: 0px 5px;
 }
+
+.active_filter {
+	background-color: red;
+}
+
+.inactive_filter {
+	background-color: green;
+}

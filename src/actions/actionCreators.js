@@ -22,3 +22,21 @@ export const resetFilter = () => {
     type: 'RESET_FILTER'
   }
 }
+
+export const addRestaurant = () => {
+  return {
+    type: 'ADD_RESTAURANT'
+  }
+}
+
+export const editRestaurant = () => {
+  return {
+    type: 'EDIT_RESTAURANT'
+  }
+}
+
+export const deleteRestaurant = () => {
+  return {
+    type: 'DELETE_RESTAURANT'
+  }
+}
