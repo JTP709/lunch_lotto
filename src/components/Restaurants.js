@@ -3,9 +3,6 @@ import { ListGroup, ListGroupItem, ButtonGroup, Button, Glyphicon } from 'react-
 import './Restaurants.css';
 
 class Restaurants extends Component {
-	constructor() {
-		super();
-	}
 
 	handleFilterClick = (key,subkey) => {
 		this.props.setFilter(key,subkey);
@@ -25,8 +22,8 @@ class Restaurants extends Component {
 					  <ListGroupItem key={restaurant.name} href={restaurant.url}>
 					  	{restaurant.name}
 					  	<div className="restaurantListBtnGrp">
-							  <Glyphicon onClick={()=> {this.props.editRestaurant()}} glyph="glyphicon glyphicon-pencil" />
-							  <Glyphicon onClick={()=> {this.props.deleteRestaurant()}} className="glyphicon glyphicon-remove" />
+							  <Glyphicon onClick={()=> {this.props.editRestaurant()}} glyph="pencil" />
+							  <Glyphicon onClick={()=> {this.props.deleteRestaurant()}} glyph="remove" />
 							</div>
 					  </ListGroupItem>
 					))

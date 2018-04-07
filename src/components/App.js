@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ConnectedRestaurants } from '../containers/ConnectedRestaurants';
 import { ConnectedLotto } from '../containers/ConnectedLotto';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Col } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
