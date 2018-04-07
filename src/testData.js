@@ -2,37 +2,47 @@ export const testData = {
 	restaurants: [
 		{
 			name: 'Fusian',
-			type: 'Sushi',
-			distance: 'walking',
-			price: '$$',
+			filters: {
+						Type: 'Sushi',
+						Distance: 'Walking',
+						Price: '$$'
+			},
 			url: 'http://www.fusian.com'
 		},
 		{
 			name: 'Whalburgers',
-			type: 'Hamburgers',
-			distance: 'walking',
-			price: '$$$',
+			filters: {
+						Type: 'Hamburgers',
+						Distance: 'Walking',
+						Price: '$$$'
+			},
 			url: 'http://www.whalburgers.com'
 		},
 		{
 			name: 'Zablongs',
-			type: 'Za, brah',
-			distance: 'walking',
-			price: '$$',
+			filters: {
+						Type: 'Za',
+						Distance: 'Walking',
+						Price: '$$'
+			},
 			url: 'http://www.zablongs.com'
 		},
 		{
 			name: 'Currito',
-			type: 'Mexican-Asian fusion',
-			distance: 'walking',
-			price: '$$',
+			filters: {
+						Type: 'MexicanAsian',
+						Distance: 'Walking',
+						Price: '$$'
+			},
 			url: 'http://www.currito.com'
 		},
 		{
 			name: 'Panera',
-			type: 'Cafe',
-			distance: 'walking',
-			price: '$$',
+			filters: {
+						Type: 'Cafe',
+						Distance: 'Walking',
+						Price: '$$'
+			},
 			url: 'http://www.panerabread.com'
 		}
 	]

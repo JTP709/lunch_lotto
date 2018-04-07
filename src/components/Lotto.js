@@ -11,7 +11,7 @@ class Lotto extends Component {
 				<Well id="winnerDiv">
 					{this.props.winner}
 				</Well>
-				<Button bsStyle="primary" bsSize="large" onClick={this.props.playLotto}>
+				<Button bsStyle="primary" bsSize="large" onClick={this.props.pickWinner}>
 					Play!
 				</Button>
 			</div>

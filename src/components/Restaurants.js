@@ -4,40 +4,63 @@ import './Restaurants.css';
 
 class Restaurants extends Component {
 	render(){
+		let restaurantList = [];
+			this.props.filteredList 
+			? restaurantList = this.props.filteredList 
+			: restaurantList = this.props.restaurants;
 		return (
 			<div className="restaurantsDiv">
 				<h1>Restaurants</h1>
 				<ListGroup>
-				{this.props.restaurants.map(restaurant => (
-						  <ListGroupItem key={restaurant.name} href={restaurant.url}>
-						  	{restaurant.name}
-						  	<div className="restaurantListBtnGrp">
-								  <Glyphicon onClick={()=> {this.editRestaurant}} className="glyphicon glyphicon-pencil" />
-								  <Glyphicon onClick={()=> {this.deleteRestaurant}} className="glyphicon glyphicon-remove" />
-								</div>
-						  </ListGroupItem>
-					)
-				)}
+				{
+					restaurantList.map(restaurant => (
+				  <ListGroupItem key={restaurant.name} href={restaurant.url}>
+				  	{restaurant.name}
+				  	<div className="restaurantListBtnGrp">
+						  <Glyphicon onClick={()=> {this.props.editRestaurant}} glyph="glyphicon glyphicon-pencil" />
+						  <Glyphicon onClick={()=> {this.props.deleteRestaurant}} className="glyphicon glyphicon-remove" />
+						</div>
+				  </ListGroupItem>))
+				}
 				</ListGroup>
-				<h1>Filter</h1>
-				<h3>Type:</h3>
-				<ButtonGroup>
-				  <Button onClick={()=> {this.props.setFilter('type', 'Sushi')}}>Sushi</Button>
-				  <Button onClick={ ()=> {this.props.setFilter('type', 'Za, brah')}}>Za, brah</Button>
-				  <Button onClick={()=> {this.props.setFilter('type', 'Hamburgers')}}>Hamburgers</Button>
-				</ButtonGroup>
-				<h3>Price:</h3>
-				<ButtonGroup>
-				  <Button onClick={()=> {this.props.setFilter('price', '$')}}>$</Button>
-				  <Button onClick={()=> {this.props.setFilter('price', '$$')}}>$$</Button>
-				  <Button onClick={()=> {this.props.setFilter('price', '$$$')}}>$$$</Button>
-				</ButtonGroup>
-				<h3>Distance:</h3>
-				<ButtonGroup>
-				  <Button onClick={()=> {this.props.setFilter('distance', 'walking')}}>Walking</Button>
-				  <Button onClick={()=> {this.props.setFilter('distance', 'driving')}}>Driving</Button>
-				  <Button onClick={()=> {this.props.setFilter('distance', 'flying')}}>Flying</Button>
-				</ButtonGroup>
+				<h2>Filters:</h2>
+				<ul>
+				{
+					Object.keys(this.props.filters).map(key => (
+						<li key={key}>{key}:
+						<ul>
+							{Object.keys(this.props.filters[key]).map(subkey => {
+								if (this.props.filters[key][subkey]) {
+									return (<li key={`${key}_${subkey}`}>
+										{subkey}
+									</li>)
+								}
+							})}
+						</ul>
+						</li>
+					))
+				}
+				</ul>
+					{
+						Object.keys(this.props.filters).map(key => (
+							<div key={`${key}_btn_group`}>
+								<h3>{key}:</h3>
+								<ButtonGroup>
+									{
+										Object.keys(this.props.filters[key]).map(subkey => (
+											<Button key={`${subkey}_btn`} onClick={()=> { this.props.setFilter(key,subkey) }}>
+												{subkey}
+											</Button>
+										))
+									}
+								</ButtonGroup>
+							</div>
+						))
+					}
+				<hr/>
+				<Button onClick={()=>{this.props.resetFilter()}}>
+					Reset Filter
+				</Button>
 			</div>
 		);
 	}
