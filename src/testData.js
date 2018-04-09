@@ -6,7 +6,7 @@ export const testData = {
 						type: 'sushi',
 						distance: 'walking',
 						price: '$$',
-						diet: 'all'
+						diet: 'else'
 			},
 			url: 'http://www.fusian.com'
 		},
@@ -16,7 +16,7 @@ export const testData = {
 						type: 'hamburgers',
 						distance: 'walking',
 						price: '$$$',
-						diet: 'all'
+						diet: 'else'
 			},
 			url: 'http://www.whalburgers.com'
 		},
@@ -26,17 +26,17 @@ export const testData = {
 						type: 'za',
 						distance: 'walking',
 						price: '$$',
-						diet: 'not_vegetarian'
+						diet: 'no_vegetarian'
 			},
 			url: 'http://www.zablongs.com'
 		},
 		{
 			name: 'Currito',
 			filters: {
-						type: 'mexican_asian',
+						type: 'global_fusion',
 						distance: 'walking',
 						price: '$$',
-						diet: 'all'
+						diet: 'else'
 			},
 			url: 'http://www.currito.com'
 		},
@@ -46,9 +46,59 @@ export const testData = {
 						type: 'cafe',
 						distance: 'walking',
 						price: '$$',
-						diet: 'all'
+						diet: 'else'
 			},
 			url: 'http://www.panerabread.com'
+		},
+		{
+			name: 'Eli\'s',
+			filters: {
+						type: 'BBQ',
+						distance: 'streetcar',
+						price: '$$',
+						diet: 'else'
+			},
+			url: 'http://www.elisbbq.com'
+		},
+		{
+			name: 'Taste of Belgium',
+			filters: {
+						type: 'breakfast',
+						distance: 'walking',
+						price: '$$',
+						diet: 'else'
+			},
+			url: 'http://www.tasteofbelgium.com'
+		},
+		{
+			name: 'Akash',
+			filters: {
+						type: 'Indian',
+						distance: 'walking',
+						price: '$$',
+						diet: 'else'
+			},
+			url: 'http://www.akash.com'
+		},
+		{
+			name: 'The Senate',
+			filters: {
+						type: 'Traditional',
+						distance: 'streetcar',
+						price: '$$',
+						diet: 'else'
+			},
+			url: 'http://www.senate.com'
+		},
+		{
+			name: 'The Eagle',
+			filters: {
+						type: 'Traditional',
+						distance: 'streetcar',
+						price: '$$',
+						diet: 'else'
+			},
+			url: 'http://www.theeagle.com'
 		}
 	]
 }

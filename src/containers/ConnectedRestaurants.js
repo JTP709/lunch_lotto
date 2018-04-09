@@ -1,11 +1,8 @@
 import { connect } from 'react-redux';
 import Restaurants from '../components/Restaurants';
-import { pickWinner, 
-         setFilter, 
-         listFilter, 
-         resetFilter, 
-         addRestaurant, 
-         editRestaurant, 
+import { pickWinner,
+         addRestaurant,
+         editRestaurant,
          deleteRestaurant } from '../actions/actionCreators';
 
 const mapStateToProps = (state) => {
@@ -18,9 +15,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   pickWinner,
-  setFilter,
-  listFilter,
-  resetFilter,
   addRestaurant,
   editRestaurant,
   deleteRestaurant

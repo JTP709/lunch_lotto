@@ -1,0 +1,13 @@
+.restaurantsDiv {
+	background-color: #4286f4;
+	color: white;
+	padding: 0px 10px 10px;
+}
+
+.restaurantListBtnGrp {
+	float: right;
+}
+
+.glyphicon {
+	padding: 0px 5px;
+}

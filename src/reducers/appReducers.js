@@ -35,8 +35,8 @@ const appReducer = (state = initialState, action) => {
             return false;
           }
         }
-        // console.log('Restaurant: ', restaurant.name);
-        // console.log('TRUE')
+        console.log('Restaurant: ', restaurant.name);
+        console.log('TRUE')
         return true;
       });
 

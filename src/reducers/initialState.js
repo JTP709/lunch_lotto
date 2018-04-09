@@ -9,8 +9,12 @@ const initialState = {
       sushi: true,
       za: true,
       hamburgers: true,
-      mexican_asian: true,
-      cafe: true
+      global_fusion: true,
+      cafe: true,
+      breakfast: true,
+      BBQ: true,
+      indian: true,
+      traditional: true
     },
     price: {
       $: true,
@@ -20,12 +24,13 @@ const initialState = {
     distance: {
       walking: true,
       driving: true,
+      streetcar: true,
       flying: true
     },
     diet: {
-      not_vegetarian: true,
-      not_gluten_free: true,
-      all: true
+      no_vegetarian: true,
+      no_gluten_free: true,
+      else: true
     }
   },
   filteredList: testData.restaurants

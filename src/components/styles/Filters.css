@@ -1,0 +1,15 @@
+.filtersDiv {
+	background-color: #4286f4;
+	color: white;
+	padding: 0px 10px 10px;
+}
+
+.active_filter {
+	background-color: white;
+	color: default;
+}
+
+.inactive_filter {
+	color: lightgrey;
+	text-decoration: line-through;
+}
