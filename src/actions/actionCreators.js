@@ -1,6 +1,47 @@
-export const pickWinner = () => {
+export const pickWinner = payload => {
   return {
-    type: 'PICK_WINNER'
+    type: 'PICK_WINNER',
+    payload
+  }
+}
+
+export const submitSearch = payload => 
+  (dispatch, getState, getFirebase) => {
+    const firebase = getFirebase();
+    dispatch(resetSearchResults());
+    fetch(`http://localhost:8080/search?query=${payload}`)
+      .then(response => {
+        if (!response.ok) {
+          alert('API call returned an error.');
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        dispatch(addSearchResults(data));
+      })
+}
+
+export const addSearchResults = payload =>
+  (dispatch, getState, getFirebase) => {
+    const firebase = getFirebase();
+    firebase
+      .push('searchResults', payload.businesses)
+      .then(() => {
+        dispatch(restaurantSearch(payload))
+      })
+  };
+
+export const restaurantSearch = payload => {
+  return {
+    type: 'RESTAURANT_SEARCH',
+    payload
+  }
+}
+
+export const resetSearchResults = () => {
+  return {
+    type: 'RESET_SEARCH_RESULTS'
   }
 }
 
@@ -10,10 +51,10 @@ export const listFilter = () => {
   }
 }
 
-export const setFilter = (key, value) => {
+export const setFilter = payload => {
 	return {
 		type: 'SET_FILTER',
-		payload: {key, value}
+		payload
 	}
 }
 

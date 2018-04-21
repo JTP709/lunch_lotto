@@ -73,7 +73,7 @@ export const testData = {
 		{
 			name: 'Akash',
 			filters: {
-						type: 'Indian',
+						type: 'indian',
 						distance: 'walking',
 						price: '$$',
 						diet: 'else'
@@ -83,7 +83,7 @@ export const testData = {
 		{
 			name: 'The Senate',
 			filters: {
-						type: 'Traditional',
+						type: 'traditional',
 						distance: 'streetcar',
 						price: '$$',
 						diet: 'else'
@@ -93,7 +93,7 @@ export const testData = {
 		{
 			name: 'The Eagle',
 			filters: {
-						type: 'Traditional',
+						type: 'traditional',
 						distance: 'streetcar',
 						price: '$$',
 						diet: 'else'
@@ -101,4 +101,34 @@ export const testData = {
 			url: 'http://www.theeagle.com'
 		}
 	]
+}
+
+export const testFilters = {
+  type: {
+    sushi: true,
+    za: true,
+    hamburgers: true,
+    global_fusion: true,
+    cafe: true,
+    breakfast: true,
+    BBQ: true,
+    indian: true,
+    traditional: true
+  },
+  price: {
+    $: true,
+    $$: true,
+    $$$: true
+  },
+  distance: {
+    walking: true,
+    driving: true,
+    streetcar: true,
+    flying: true
+  },
+  diet: {
+    no_vegetarian: true,
+    no_gluten_free: true,
+    else: true
+  }
 }

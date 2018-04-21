@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
+import FilterButton from './FilterButton';
 import { ButtonGroup, Button } from 'react-bootstrap';
+import { setFilterUtil, capitalizeKeyWord } from '../utils/utilities';
 import './styles/Filters.css';
 
 class Filters extends Component {
-
-	handleFilterClick = (key,subkey) => {
-		this.props.setFilter(key,subkey);
+	clickHandler=(key,value)=>{
+		const { filters, restaurants, setFilter } = this.props;
+		const payload = setFilterUtil(filters, restaurants, key, value);
+		setFilter(payload)
 	}
 
 	render(){
+		const { filters, resetFilter } = this.props;
 		return(
 			<div className="filtersDiv component_divs">
 				<h2 id="filters_header" className="component_headers">Filters</h2>
 				{
-					Object.keys(this.props.filters).map(key => (
-						<div key={`${key}_btn_group`}>
-							<h4>{key.split('_').map(word=>word[0].toUpperCase()+word.slice(1)).join(" ")}:</h4>
+					filters ?
+					Object.keys(filters).map(key => (
+						<div key={ `${key}_btn_group` }>
+							<h4>{ capitalizeKeyWord(key) }:</h4>
 							<ButtonGroup>
 								{
-									Object.keys(this.props.filters[key]).map(subkey => {
-										let highlight = '';
-										this.props.filters[key][subkey] 
-											? highlight = 'active_filter' 
-											: highlight = 'inactive_filter'
+									Object.keys(filters[key]).map(subkey => {
 										return (
-											<Button key={`${subkey}_btn`} className={`${highlight} ${subkey}_btn`} onClick={()=> { this.handleFilterClick(key,subkey) }}>
-												{subkey.split('_').map(word=>word[0].toUpperCase()+word.slice(1)).join(" ")}
-											</Button>)
+											<FilterButton
+												key={ `${subkey}_filterBtn`}
+												clickHandler={ this.clickHandler }
+												active={ filters[key][subkey] }
+												filterKey={ key }
+												filterSubkey={ subkey }
+												name={ capitalizeKeyWord(subkey) }
+											/>										
+										)
 									})
 								}
 							</ButtonGroup>
 						</div>
-					))
+					)) : <h4>No filters found!</h4>
 				}
 				<hr/>
-				<Button onClick={()=>{this.props.resetFilter()}}>
+				<Button onClick={ resetFilter }>
 					Reset All
 				</Button>
 			</div>
