@@ -5,12 +5,15 @@ export const pickWinner = payload => {
   }
 }
 
-export const submitSearch = payload => 
-  (dispatch, getState, getFirebase) => {
-    const firebase = getFirebase();
+export const submitSearch = payload => {
+  //(dispatch, getState, getFirebase) => {
+  console.log('submitSearch: ',payload);
+  return dispatch => {
+    //const firebase = getFirebase();
     dispatch(resetSearchResults());
     fetch(`http://localhost:8080/search?query=${payload}`)
       .then(response => {
+        console.log('response:',response);
         if (!response.ok) {
           alert('API call returned an error.');
           throw Error(response.statusText);
@@ -18,8 +21,10 @@ export const submitSearch = payload =>
         return response.json();
       })
       .then(data => {
-        dispatch(addSearchResults(data));
+        //dispatch(addSearchResults(data));
+        dispatch(restaurantSearch(data));
       })
+  }
 }
 
 export const addSearchResults = payload =>

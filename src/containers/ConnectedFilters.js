@@ -11,9 +11,9 @@ import { getRestaurants, getFilteredList, getFilters } from '../reducers/appRedu
 
 const mapStateToProps = state => {
   return {
-    restaurants: getRestaurants(state),
-    filteredList: getFilteredList(state),
-    filters: getFilters(state)
+    restaurants: state.restaurants,
+    filteredList: state.filteredList,
+    filters: state.filters
   }
 }
 
@@ -23,19 +23,19 @@ const mapDispatchToProps = {
   resetFilter
 }
 
-// export const ConnectedFilters = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Filters)
-
-export const ConnectedFilters = compose(
-  firebaseConnect((props) => {
-    return [
-      'devEnvironment_1'
-    ]
-  }),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export const ConnectedFilters = connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(Filters)
+
+// export const ConnectedFilters = compose(
+//   firebaseConnect((props) => {
+//     return [
+//       'devEnvironment_1'
+//     ]
+//   }),
+//   connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+//   )
+// )(Filters)

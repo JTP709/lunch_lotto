@@ -12,10 +12,9 @@ import { getRestaurants, getSearchInput, getFilteredList, getSearchResults } fro
 
 const mapStateToProps = (state) => {
   return {
-  	restaurants: getRestaurants(state),
-    searchInput: getSearchInput(state),
-    filteredList: getFilteredList(state),
-    searchResults: getSearchResults(state)
+  	restaurants: state.restaurants,
+    filteredList: state.filteredList,
+    searchResults: state.searchResults
   }
 }
 
@@ -28,19 +27,19 @@ const mapDispatchToProps = {
   submitSearch
 }
 
-// export const ConnectedRestaurants = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Restaurants)
-
-export const ConnectedRestaurants = compose(
-  firebaseConnect((props) => {
-    return [
-      'devEnvironment_1'
-    ]
-  }),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export const ConnectedRestaurants = connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(Restaurants)
+
+// export const ConnectedRestaurants = compose(
+//   firebaseConnect((props) => {
+//     return [
+//       'devEnvironment_1'
+//     ]
+//   }),
+//   connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+//   )
+// )(Restaurants)

@@ -17,6 +17,7 @@ class RestaurantList extends Component {
 
 	render(){
 		const { restaurants, type } = this.props;
+		console.log('search results: ',restaurants);
 		return (
 			<div>
   			<PanelGroup id={ `${type}-panel-group` } accordion>

@@ -47,6 +47,7 @@ class Restaurants extends Component {
 			searchResults
 		} = this.props;
 		const restaurantList = filteredList ? filteredList : restaurants;
+		console.log('restaurant search results: ',searchResults);
 
 		return (
 			<div className="restaurantsDiv component_divs">
@@ -82,7 +83,7 @@ class Restaurants extends Component {
 			        </FormGroup>
 			      </form>
 			      { 
-			      	searchResults ? <RestaurantList restaurants={ searchResults.businesses } type="SearchResults" /> : null
+			      	searchResults.businesses ? <RestaurantList restaurants={ searchResults.businesses } type="SearchResults" /> : null
  						}
           </Modal.Body>
           <Modal.Footer>

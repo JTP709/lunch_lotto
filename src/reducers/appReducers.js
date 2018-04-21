@@ -2,12 +2,19 @@
 //TODO: make pure functions
 import initialState from './initialState';
 
-export const getRestaurants = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.restaurants : undefined;
-export const getFilteredList = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.filteredList : undefined;
-export const getSearchInput = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.searchInput : '';
-export const getSearchResults = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.searchResults : undefined;
-export const getWinner = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.winner : 'Press the Button!';
-export const getFilters = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.filters : undefined;
+// export const getRestaurants = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.restaurants : [];
+// export const getFilteredList = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.filteredList : [];
+// export const getSearchInput = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.searchInput : '';
+// export const getSearchResults = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.searchResults : [];
+// export const getWinner = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.winner : 'Press the Button!';
+// export const getFilters = (state) => state.firebase.data.devEnvironment_1 ? state.firebase.data.devEnvironment_1.filters : [];
+
+export const getRestaurants = (state) => state.restaurants ? state.restaurants : [];
+export const getFilteredList = (state) => state.filteredList ? state.filteredList : [];
+export const getSearchInput = (state) => state.searchInput ? state.searchInput : '';
+export const getSearchResults = (state) => state.searchResults ? state.searchResults : [];
+export const getWinner = (state) => state.winner ? state.winner : 'Press the Button!';
+export const getFilters = (state) => state.filters ? state.filters : [];
 
 const appReducer = (state = initialState, action) => {
   switch(action.type) {
