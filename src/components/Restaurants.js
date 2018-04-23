@@ -37,16 +37,28 @@ class Restaurants extends Component {
     this.setState({ value: e.target.value });
   }
 
+  handleAddRestaurant = data => {
+  	const { addRestaurant, restaurants, setFilter } = this.props;
+  	const payload = restaurants.concat(data)
+  	addRestaurant(payload);
+  	setFilter(payload);
+  }
+
+  handleRemoveRestaurant = data => {
+  	const { removeRestaurant, restaurants } = this.props;
+  	const payload = restaurants.filter(restaurant => restaurant != data);
+  	removeRestaurant(payload);
+  }
+
 	render(){
 		const { 
 			filteredList,
 			restaurants,
 			editRestaurant,
-			deleteRestaurant,
 			submitSearch,
 			searchResults
 		} = this.props;
-		const restaurantList = filteredList ? filteredList : restaurants;
+		const restaurantList = filteredList.length > 0 ? filteredList : restaurants;
 		console.log('restaurant search results: ',searchResults);
 
 		return (
@@ -54,8 +66,12 @@ class Restaurants extends Component {
 				<h2 id="restaurant_header" className="component_headers">Restaurants</h2>
 				<ListGroup>
 				{
-					restaurantList ?
-					<RestaurantList restaurants={ restaurantList } type="RestaurantList" /> :
+					restaurantList.length > 0 ?
+					<RestaurantList 
+						restaurants={ restaurantList } 
+						type="RestaurantList"
+			      handleRemoveRestaurant={ this.handleRemoveRestaurant } 
+			    /> :
 					<h4>You don't have any favorite Restaurants!</h4>
 				}
 				</ListGroup>
@@ -83,7 +99,12 @@ class Restaurants extends Component {
 			        </FormGroup>
 			      </form>
 			      { 
-			      	searchResults.businesses ? <RestaurantList restaurants={ searchResults.businesses } type="SearchResults" /> : null
+			      	searchResults.businesses &&
+			      		<RestaurantList 
+			      			restaurants={ searchResults.businesses }
+			      			type="SearchResults"
+			      			handleAddRestaurant={ this.handleAddRestaurant }
+		      			/>
  						}
           </Modal.Body>
           <Modal.Footer>

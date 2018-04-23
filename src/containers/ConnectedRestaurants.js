@@ -2,13 +2,21 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import Restaurants from '../components/Restaurants';
-import { pickWinner,
-         addRestaurant,
-         editRestaurant,
-         deleteRestaurant,
-         restaurantSearch,
-         submitSearch } from '../actions/actionCreators';
-import { getRestaurants, getSearchInput, getFilteredList, getSearchResults } from '../reducers/appReducers';
+import { 
+  pickWinner,
+  addRestaurant,
+  editRestaurant,
+  removeRestaurant,
+  restaurantSearch,
+  submitSearch,
+  setFilter
+} from '../actions/actionCreators';
+import { 
+  getRestaurants,
+  getSearchInput,
+  getFilteredList,
+  getSearchResults
+} from '../reducers/appReducers';
 
 const mapStateToProps = (state) => {
   return {
@@ -22,9 +30,10 @@ const mapDispatchToProps = {
   pickWinner,
   addRestaurant,
   editRestaurant,
-  deleteRestaurant,
+  removeRestaurant,
   restaurantSearch,
-  submitSearch
+  submitSearch,
+  setFilter
 }
 
 export const ConnectedRestaurants = connect(

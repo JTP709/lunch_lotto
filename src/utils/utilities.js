@@ -1,12 +1,13 @@
-export const pickWinnerUtil = (filteredList, currentWinner) => {
-	let winner = {};
-	if (filteredList.length === 0) {
+export const pickWinnerUtil = (filteredList, restaurantList, currentWinner) => {
+	let winner;
+	const list = filteredList.length > 0 ? filteredList : restaurantList;
+	if (list.length <= 0) {
 	  return 'Push the Button!';
 	} else {
-	  const index = () => Math.floor(Math.random()*filteredList.length)
-	  winner = filteredList[index()];
+	  const index = () => Math.floor(Math.random()*list.length);
+	  winner = list[index()];
 	  if (winner.name === currentWinner) {
-	    winner = filteredList[index()]
+	    winner = list[index()]
 	  }
 	}
 	return winner.name

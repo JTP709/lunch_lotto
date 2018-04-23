@@ -26,7 +26,7 @@ const appReducer = (state = initialState, action) => {
     case 'SET_FILTER':
       return {
         ...state,
-        filteredList: action.payload
+        filters: action.payload
       };
     case 'RESET_FILTER':
       return initialState;
@@ -40,6 +40,16 @@ const appReducer = (state = initialState, action) => {
         ...state,
         searchResults: initialState.searchResults
       };
+    case 'ADD_RESTAURANT':
+      return {
+        ...state,
+        restaurants: action.payload
+      }
+    case 'REMOVE_RESTAURANT':
+      return {
+        ...state,
+        restaurants: action.payload
+      }
     default:
       return state;
   }

@@ -5,8 +5,8 @@ import './styles/Lotto.css';
 
 class Lotto extends Component {
 	clickHandler=()=>{
-		const { filteredList, winner, pickWinner } = this.props;
-		const payload = pickWinnerUtil(filteredList, winner.name);
+		const { filteredList, winner, restaurants, pickWinner } = this.props;
+		const payload = pickWinnerUtil(filteredList, restaurants, winner);
 		pickWinner(payload);
 	}
 	render() {

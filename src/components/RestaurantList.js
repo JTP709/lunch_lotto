@@ -11,58 +11,78 @@ import { ListGroup,
 				 HelpBlock,
 				 Panel,
 				 PanelGroup,
-				 Table } from 'react-bootstrap';
+				 Table
+} from 'react-bootstrap';
+import './styles/Restaurants.css';
+
 
 class RestaurantList extends Component {
 
 	render(){
-		const { restaurants, type } = this.props;
+		const { 
+			restaurants,
+			type,
+			handleAddRestaurant,
+			handleRemoveRestaurant
+		} = this.props;
 		console.log('search results: ',restaurants);
 		return (
 			<div>
   			<PanelGroup id={ `${type}-panel-group` } accordion>
   			{
-					restaurants.map(result => {
+					restaurants.map(restaurant => {
 						return(
-					  <Panel key={ result.id } eventKey={ restaurants.indexOf(result)+1 }>
-		          <Panel.Heading id={ `${result.id}-panel-heading` }>
+					  <Panel key={ restaurant.id } eventKey={ restaurants.indexOf(restaurant)+1 }>
+		          <Panel.Heading id={ `${restaurant.id}-panel-heading` }>
 		            <Panel.Title toggle>
-		              { result.name }
+		              { restaurant.name }
 		            </Panel.Title>
 		          </Panel.Heading>
-		          <Panel.Collapse id={ `${result.id}-panel-collapse` }>
+		          <Panel.Collapse id={ `${restaurant.id}-panel-collapse` }>
 		            <Panel.Body collapsible>
 			            <Table striped bordered condensed hover>
 									  <tbody>
 									    <tr>
 									      <td>Phone:</td>
-									      <td>{ result.display_phone }</td>
+									      <td>{ restaurant.display_phone }</td>
 									    </tr>
 									  </tbody>
 									  <tbody>
 									  	<tr>
 									      <td>Price:</td>
-									      <td>{ result.price }</td>
+									      <td>{ restaurant.price }</td>
 									    </tr>
 									  </tbody>
 									  <tbody>
 									  	<tr>
 									      <td>Website:</td>
-									      <td><a href={ result.url }>Website Link</a></td>
+									      <td><a href={ restaurant.url }>Website Link</a></td>
 									    </tr>
 									  </tbody>
 									  <tbody>
 									  	<tr>
 									      <td>Address:</td>
 									      <td>
-													{ result.location.address1 }<br/>
-									        { result.location.city }<br/>
-									        { result.location.state }<br/>
-									        { result.location.zip_code }<br/>
+													{ restaurant.location.address1 }<br/>
+									        { restaurant.location.city }<br/>
+									        { restaurant.location.state }<br/>
+									        { restaurant.location.zip_code }<br/>
 								        </td>
 									    </tr>
 									  </tbody>
 									</Table>
+									{
+										type === "SearchResults" &&
+											<Button onClick={ ()=>{ handleAddRestaurant(restaurant) } }>
+												Add to Favorites
+											</Button>
+									}
+									{
+										type === "RestaurantList" &&
+										<Button onClick={ ()=>{ handleRemoveRestaurant(restaurant) } }>
+											Remove From Favorites
+										</Button>
+									}
 		            </Panel.Body>
 		          </Panel.Collapse>
 		        </Panel>

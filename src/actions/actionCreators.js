@@ -50,17 +50,27 @@ export const resetSearchResults = () => {
   }
 }
 
+export const setFilter = data => {
+  console.log('init');
+  let payload = [];
+  data.categories.map(category => {
+    console.log('category: ',category);
+    if(!payload.includes(category.title)) {
+      console.log('inside if');
+      const catTitle = category.title;
+      payload.concat({ catTitle: true })
+    }
+  })
+  return {
+    type: 'SET_FILTER',
+    payload
+  }
+}
+
 export const listFilter = () => {
   return {
    	type: 'LIST_FILTER'
   }
-}
-
-export const setFilter = payload => {
-	return {
-		type: 'SET_FILTER',
-		payload
-	}
 }
 
 export const resetFilter = () => {
@@ -69,20 +79,23 @@ export const resetFilter = () => {
   }
 }
 
-export const addRestaurant = () => {
+export const addRestaurant = payload => {
   return {
-    type: 'ADD_RESTAURANT'
+    type: 'ADD_RESTAURANT',
+    payload
   }
 }
 
-export const editRestaurant = () => {
+export const editRestaurant = payload => {
   return {
-    type: 'EDIT_RESTAURANT'
+    type: 'EDIT_RESTAURANT',
+    payload
   }
 }
 
-export const deleteRestaurant = () => {
+export const removeRestaurant = payload => {
   return {
-    type: 'DELETE_RESTAURANT'
+    type: 'REMOVE_RESTAURANT',
+    payload
   }
 }

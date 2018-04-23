@@ -39,7 +39,7 @@ public class RestaurantService {
 
         HttpEntity<String> entity = new HttpEntity<String>(null , headers);
 
-        ResponseEntity<SearchInfo> respEntity = restTemplate.exchange("https://api.yelp.com/v3/businesses/search?term="+query+"&latitude=37.786882&longitude=-122.399972", HttpMethod.GET, entity, SearchInfo.class);
+        ResponseEntity<SearchInfo> respEntity = restTemplate.exchange("https://api.yelp.com/v3/businesses/search?term="+query+"&latitude=39.104330&longitude=-84.511893", HttpMethod.GET, entity, SearchInfo.class);
 
         SearchInfo searchInfo = respEntity.getBody();
         return searchInfo;

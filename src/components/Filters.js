@@ -8,7 +8,7 @@ class Filters extends Component {
 	clickHandler=(key,value)=>{
 		const { filters, restaurants, setFilter } = this.props;
 		const payload = setFilterUtil(filters, restaurants, key, value);
-		setFilter(payload)
+		setFilter(payload);
 	}
 
 	render(){
@@ -16,29 +16,26 @@ class Filters extends Component {
 		return(
 			<div className="filtersDiv component_divs">
 				<h2 id="filters_header" className="component_headers">Filters</h2>
-				{
-					filters ?
-					Object.keys(filters).map(key => (
-						<div key={ `${key}_btn_group` }>
-							<h4>{ capitalizeKeyWord(key) }:</h4>
+				{ /* reset from false */
+					false ?
+						<div key={ `${'filter'}_btn_group` }>
+							<h4>{ filters }:</h4>
 							<ButtonGroup>
 								{
-									Object.keys(filters[key]).map(subkey => {
+									filters.map(category => {
 										return (
 											<FilterButton
-												key={ `${subkey}_filterBtn`}
+												key={ `${category}_filterBtn`}
 												clickHandler={ this.clickHandler }
-												active={ filters[key][subkey] }
-												filterKey={ key }
-												filterSubkey={ subkey }
-												name={ capitalizeKeyWord(subkey) }
+												active={ category }
+												name={ capitalizeKeyWord(category) }
 											/>										
 										)
 									})
 								}
 							</ButtonGroup>
-						</div>
-					)) : <h4>No filters found!</h4>
+						</div> :
+						<h4>No filters found!</h4>
 				}
 				<hr/>
 				<Button onClick={ resetFilter }>

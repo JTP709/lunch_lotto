@@ -1,7 +1,7 @@
 import {testData} from '../testData';
 
 const initialState = {
-  restaurants: [],
+  restaurants: testData.restaurants,
   winner: 'Push the Button!', 
   searchInput: '',
   filteredList: [],

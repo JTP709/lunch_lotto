@@ -8,7 +8,8 @@ import { getWinner, getFilteredList } from '../reducers/appReducers';
 const mapStateToProps = (state) => {
   return {
     winner: state.winner,
-    filteredList: state.filteredList
+    filteredList: state.filteredList,
+  	restaurants: state.restaurants,
   }
 }
 
