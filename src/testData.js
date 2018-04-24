@@ -1,38 +1,5 @@
-export const testData = {
+export const testRestaurants = {
 	restaurants: [
-    {
-      id: 'GSb2WdNWSQdegRGu-ch8WQ',
-      name: 'FUSIAN',
-      url: 'https://www.yelp.com/biz/fusian-cincinnati?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
-      categories: [
-        {
-          alias: 'sushi',
-          title: 'Sushi Bars'
-        },
-        {
-          alias: 'vegan',
-          title: 'Vegan'
-        },
-        {
-          alias: 'gluten_free',
-          title: 'Gluten-Free'
-        }
-      ],
-      location: {
-        address1: '600 Vine St',
-        city: 'Cincinnati',
-        zip_code: '45202',
-        state: 'OH',
-        display_address: [
-          '600 Vine St',
-          'Cincinnati, OH 45202'
-        ]
-      },
-      price: '$',
-      photos: null,
-      display_phone: '(513) 421-7647',
-      alias: 'fusian-cincinnati'
-    },
     {
       id: 'XLqyipfv658c5wQc2caMvg',
       name: 'Currito',
@@ -214,36 +181,125 @@ export const testData = {
       photos: null,
       display_phone: '(513) 421-2020',
       alias: 'senate-cincinnati-3'
+    },
+    {
+      id: 'GSb2WdNWSQdegRGu-ch8WQ',
+      name: 'FUSIAN',
+      url: 'https://www.yelp.com/biz/fusian-cincinnati?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
+      categories: [
+        {
+          alias: 'sushi',
+          title: 'Sushi Bars'
+        },
+        {
+          alias: 'vegan',
+          title: 'Vegan'
+        },
+        {
+          alias: 'gluten_free',
+          title: 'Gluten-Free'
+        }
+      ],
+      location: {
+        address1: '600 Vine St',
+        city: 'Cincinnati',
+        zip_code: '45202',
+        state: 'OH',
+        display_address: [
+          '600 Vine St',
+          'Cincinnati, OH 45202'
+        ]
+      },
+      price: '$',
+      photos: null,
+      display_phone: '(513) 421-7647',
+      alias: 'fusian-cincinnati'
+    },
+    {
+      id: '6Fr0gKPwtVkYyUQzkFcm1w',
+      name: 'The Eagle',
+      url: 'https://www.yelp.com/biz/the-eagle-cincinnati?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
+      categories: [
+        {
+          alias: 'tradamerican',
+          title: 'American (Traditional)'
+        },
+        {
+          alias: 'comfortfood',
+          title: 'Comfort Food'
+        },
+        {
+          alias: 'southern',
+          title: 'Southern'
+        }
+      ],
+      location: {
+        address1: '1342 Vine St',
+        city: 'Cincinnati',
+        zip_code: '45202',
+        state: 'OH',
+        display_address: [
+          '1342 Vine St',
+          'Cincinnati, OH 45202'
+        ]
+      },
+      price: '$$',
+      photos: null,
+      display_phone: '(513) 802-5007',
+      alias: 'the-eagle-cincinnati'
     }
   ]
 }
 
 export const testFilters = {
-  type: {
-    sushi: true,
-    za: true,
-    hamburgers: true,
-    global_fusion: true,
-    cafe: true,
-    breakfast: true,
-    BBQ: true,
-    indian: true,
-    traditional: true
-  },
-  price: {
-    $: true,
-    $$: true,
-    $$$: true
-  },
-  distance: {
-    walking: true,
-    driving: true,
-    streetcar: true,
-    flying: true
-  },
-  diet: {
-    no_vegetarian: true,
-    no_gluten_free: true,
-    else: true
-  }
+  filters: [
+    {
+      'Sushi Bars': true
+    },
+    {
+      Vegan: true
+    },
+    {
+      'Gluten-Free': true
+    },
+    {
+      Mexican: true
+    },
+    {
+      'Juice Bars & Smoothies': true
+    },
+    {
+      Indian: true
+    },
+    {
+      Barbeque: true
+    },
+    {
+      Bars: true
+    },
+    {
+      'Breakfast & Brunch': true
+    },
+    {
+      Belgian: true
+    },
+    {
+      'American (New)': true
+    },
+    {
+      'Hot Dogs': true
+    },
+    {
+      Gastropubs: true
+    },
+    {
+      'American (Traditional)': true
+    },
+    {
+      'Comfort Food': true
+    },
+    {
+      Southern: true
+    }
+  ]
 }

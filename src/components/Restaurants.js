@@ -42,7 +42,7 @@ class Restaurants extends Component {
   	let payload;
 		payload = restaurants.concat(data);
 		addRestaurant(payload);
-		listFilter(data);
+		listFilter(data.categories);
   }
 
   handleRemoveRestaurant = data => {

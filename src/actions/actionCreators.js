@@ -48,16 +48,7 @@ export const resetSearchResults = () => {
   }
 }
 
-export const listFilter = data => {
-  let payload = [];
-  data.categories.map(category => {
-    if(!payload.includes(category.title)) {
-      const catTitle = category.title;
-      let obj = {};
-      obj[catTitle] = true;
-      payload.push(obj);
-    }
-  })
+export const listFilter = payload => {
   return {
     type: 'LIST_FILTER',
     payload

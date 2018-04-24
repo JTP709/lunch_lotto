@@ -24,10 +24,17 @@ const appReducer = (state = initialState, action) => {
         winner: action.payload
       };
     case 'LIST_FILTER':
-      let includes;
-      const oldFiltersStateKeys = Object.keys(state.filters);
-      const newFilters = action.payload.filter(category => !oldFiltersStateKeys.includes(category.id));
-      const newFiltersState = state.filters.concat(newFilters);
+      // action.payload = array of categories objets
+      let oldFiltersStateKeys =[];
+      state.filters.map(filter => !oldFiltersStateKeys.push(Object.keys(filter)[0]));
+      const newFilters = action.payload.filter(category => !oldFiltersStateKeys.includes(category.title));
+      const newFilterObjects = newFilters.map(category => {
+        const catTitle = category.title;
+        let obj = {};
+        obj[catTitle] = true;
+        return obj
+      });
+      const newFiltersState = state.filters.concat(newFilterObjects);
       return {
         ...state,
         filters: newFiltersState

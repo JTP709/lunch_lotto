@@ -1,12 +1,12 @@
-import {testData} from '../testData';
+import { testRestaurants, testFilters } from '../testData';
 
 const initialState = {
-  restaurants: testData.restaurants,
+  restaurants: testRestaurants.restaurants,
   winner: 'Push the Button!', 
   searchInput: '',
   filteredList: [],
   searchResults: [],
-  filters:[]
+  filters: testFilters.filters
 }
 
 export default initialState;
