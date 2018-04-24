@@ -38,15 +38,11 @@ class Restaurants extends Component {
   }
 
   handleAddRestaurant = data => {
-  	const { addRestaurant, restaurants, setFilter } = this.props;
+  	const { addRestaurant, restaurants, listFilter } = this.props;
   	let payload;
-  	console.log('includes?',restaurants.includes(data));
-  	console.log('restaurants', restaurants);
-  	console.log('data', data);
-  	//if(!restaurants.includes(data))
 		payload = restaurants.concat(data);
 		addRestaurant(payload);
-		setFilter(data);
+		listFilter(data);
   }
 
   handleRemoveRestaurant = data => {

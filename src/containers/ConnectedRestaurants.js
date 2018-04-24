@@ -9,7 +9,7 @@ import {
   removeRestaurant,
   restaurantSearch,
   submitSearch,
-  setFilter
+  listFilter
 } from '../actions/actionCreators';
 import { 
   getRestaurants,
@@ -33,7 +33,7 @@ const mapDispatchToProps = {
   removeRestaurant,
   restaurantSearch,
   submitSearch,
-  setFilter
+  listFilter
 }
 
 export const ConnectedRestaurants = connect(

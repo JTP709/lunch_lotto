@@ -17,18 +17,20 @@ class Filters extends Component {
 			<div className="filtersDiv component_divs">
 				<h2 id="filters_header" className="component_headers">Filters</h2>
 				{ /* reset from false */
-					false ?
+					filters.length > 0 ?
 						<div key={ `${'filter'}_btn_group` }>
-							<h4>{ filters }:</h4>
+							<h4>Categories:</h4>
 							<ButtonGroup>
 								{
 									filters.map(category => {
+										const name = Object.keys(category)[0];
+										const toggle = category[name];
 										return (
 											<FilterButton
-												key={ `${category}_filterBtn`}
+												key={ `${name}_filterBtn`}
 												clickHandler={ this.clickHandler }
-												active={ category }
-												name={ capitalizeKeyWord(category) }
+												active={ toggle }
+												name={ name }
 											/>										
 										)
 									})

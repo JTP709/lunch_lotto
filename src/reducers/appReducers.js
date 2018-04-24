@@ -23,15 +23,21 @@ const appReducer = (state = initialState, action) => {
         ...state,
         winner: action.payload
       };
-    case 'SET_FILTER':
-      const addedFilters = action.payload;
-      const oldFiltersState = state.filters;
-      const newFilters = addedFilters.filter(filterObj => !state.filters.includes(filterObj));
-      const newFiltersState = oldFiltersState.concat(newFilters);
+    case 'LIST_FILTER':
+      let includes;
+      const oldFiltersStateKeys = Object.keys(state.filters);
+      const newFilters = action.payload.filter(category => !oldFiltersStateKeys.includes(category.id));
+      const newFiltersState = state.filters.concat(newFilters);
       return {
         ...state,
         filters: newFiltersState
       };
+    case 'SET_FILTER':
+      // tempcase
+      return {
+        ...state,
+        filters: action.payload
+      }
     case 'RESET_FILTER':
       return initialState;
     case 'RESTAURANT_SEARCH':

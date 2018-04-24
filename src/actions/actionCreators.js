@@ -48,7 +48,7 @@ export const resetSearchResults = () => {
   }
 }
 
-export const setFilter = data => {
+export const listFilter = data => {
   let payload = [];
   data.categories.map(category => {
     if(!payload.includes(category.title)) {
@@ -59,14 +59,15 @@ export const setFilter = data => {
     }
   })
   return {
-    type: 'SET_FILTER',
+    type: 'LIST_FILTER',
     payload
   }
 }
 
-export const listFilter = () => {
+export const setFilter = payload => {
   return {
-   	type: 'LIST_FILTER'
+   	type: 'SET_FILTER',
+    payload
   }
 }
 

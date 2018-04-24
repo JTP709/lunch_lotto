@@ -18,11 +18,15 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
+            <Col xs={12} md={12}>
+              <ConnectedLotto />
+            </Col>
+          </Row>
+          <Row>
             <Col xs={12} md={4}>
               <ConnectedFilters />
             </Col>
             <Col xs={12} md={8}>
-              <ConnectedLotto />
               <ConnectedRestaurants />
             </Col>
           </Row>
