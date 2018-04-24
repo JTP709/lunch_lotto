@@ -7,13 +7,11 @@ export const pickWinner = payload => {
 
 export const submitSearch = payload => {
   //(dispatch, getState, getFirebase) => {
-  console.log('submitSearch: ',payload);
   return dispatch => {
     //const firebase = getFirebase();
     dispatch(resetSearchResults());
     fetch(`http://localhost:8080/search?query=${payload}`)
       .then(response => {
-        console.log('response:',response);
         if (!response.ok) {
           alert('API call returned an error.');
           throw Error(response.statusText);
@@ -51,14 +49,13 @@ export const resetSearchResults = () => {
 }
 
 export const setFilter = data => {
-  console.log('init');
   let payload = [];
   data.categories.map(category => {
-    console.log('category: ',category);
     if(!payload.includes(category.title)) {
-      console.log('inside if');
       const catTitle = category.title;
-      payload.concat({ catTitle: true })
+      let obj = {};
+      obj[catTitle] = true;
+      payload.push(obj);
     }
   })
   return {

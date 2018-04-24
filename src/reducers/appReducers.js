@@ -24,9 +24,13 @@ const appReducer = (state = initialState, action) => {
         winner: action.payload
       };
     case 'SET_FILTER':
+      const addedFilters = action.payload;
+      const oldFiltersState = state.filters;
+      const newFilters = addedFilters.filter(filterObj => !state.filters.includes(filterObj));
+      const newFiltersState = oldFiltersState.concat(newFilters);
       return {
         ...state,
-        filters: action.payload
+        filters: newFiltersState
       };
     case 'RESET_FILTER':
       return initialState;

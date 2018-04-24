@@ -39,9 +39,14 @@ class Restaurants extends Component {
 
   handleAddRestaurant = data => {
   	const { addRestaurant, restaurants, setFilter } = this.props;
-  	const payload = restaurants.concat(data)
-  	addRestaurant(payload);
-  	setFilter(payload);
+  	let payload;
+  	console.log('includes?',restaurants.includes(data));
+  	console.log('restaurants', restaurants);
+  	console.log('data', data);
+  	//if(!restaurants.includes(data))
+		payload = restaurants.concat(data);
+		addRestaurant(payload);
+		setFilter(data);
   }
 
   handleRemoveRestaurant = data => {
@@ -59,7 +64,6 @@ class Restaurants extends Component {
 			searchResults
 		} = this.props;
 		const restaurantList = filteredList.length > 0 ? filteredList : restaurants;
-		console.log('restaurant search results: ',searchResults);
 
 		return (
 			<div className="restaurantsDiv component_divs">
@@ -68,6 +72,7 @@ class Restaurants extends Component {
 				{
 					restaurantList.length > 0 ?
 					<RestaurantList 
+						favorites={ restaurants }
 						restaurants={ restaurantList } 
 						type="RestaurantList"
 			      handleRemoveRestaurant={ this.handleRemoveRestaurant } 
@@ -101,6 +106,7 @@ class Restaurants extends Component {
 			      { 
 			      	searchResults.businesses &&
 			      		<RestaurantList 
+			      			favorites={ restaurants }
 			      			restaurants={ searchResults.businesses }
 			      			type="SearchResults"
 			      			handleAddRestaurant={ this.handleAddRestaurant }

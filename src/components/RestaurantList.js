@@ -20,17 +20,22 @@ class RestaurantList extends Component {
 
 	render(){
 		const { 
+			favorites,
 			restaurants,
 			type,
 			handleAddRestaurant,
 			handleRemoveRestaurant
 		} = this.props;
-		console.log('search results: ',restaurants);
 		return (
 			<div>
   			<PanelGroup id={ `${type}-panel-group` } accordion>
   			{
 					restaurants.map(restaurant => {
+						let included = false;
+						favorites.map(favorite=>{
+							if(favorite.id === restaurant.id)
+								included = true
+						});
 						return(
 					  <Panel key={ restaurant.id } eventKey={ restaurants.indexOf(restaurant)+1 }>
 		          <Panel.Heading id={ `${restaurant.id}-panel-heading` }>
@@ -72,15 +77,13 @@ class RestaurantList extends Component {
 									  </tbody>
 									</Table>
 									{
-										type === "SearchResults" &&
-											<Button onClick={ ()=>{ handleAddRestaurant(restaurant) } }>
-												Add to Favorites
-											</Button>
-									}
-									{
-										type === "RestaurantList" &&
+										type === "RestaurantList" ?
 										<Button onClick={ ()=>{ handleRemoveRestaurant(restaurant) } }>
 											Remove From Favorites
+										</Button> : included ?
+										<h4>Restaurant is already in your Favorites</h4> :
+										<Button onClick={ ()=>{ handleAddRestaurant(restaurant) } }>
+											Add to Favorites
 										</Button>
 									}
 		            </Panel.Body>
