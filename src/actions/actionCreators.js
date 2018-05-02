@@ -62,6 +62,12 @@ export const setFilter = payload => {
   }
 }
 
+export const restaurantFilter = () => {
+  return {
+    type: 'RESTAURANT_FILTER'
+  }
+}
+
 export const resetFilter = () => {
   return {
     type: 'RESET_FILTER'

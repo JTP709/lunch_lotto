@@ -5,10 +5,13 @@ import { setFilterUtil, capitalizeKeyWord } from '../utils/utilities';
 import './styles/Filters.css';
 
 class Filters extends Component {
-	clickHandler=(key,value)=>{
-		const { filters, restaurants, setFilter } = this.props;
-		const payload = setFilterUtil(filters, restaurants, key, value);
-		setFilter(payload);
+
+	handleClick = name => {
+		const { filters, setFilter, restaurantFilter } = this.props;
+		let newFilters = { ...filters };
+		newFilters[name] = !newFilters[name];
+		setFilter(newFilters);
+		restaurantFilter();
 	}
 
 	render(){
@@ -16,19 +19,20 @@ class Filters extends Component {
 		return(
 			<div className="filtersDiv component_divs">
 				<h2 id="filters_header" className="component_headers">Filters</h2>
-				{ /* reset from false */
-					filters.length > 0 ?
+				{
+					Object.keys(filters).length > 0?
 						<ListGroup key={ `${'filter'}_btn_group` }>
 							{
-								filters.map(category => {
-									const name = Object.keys(category)[0];
-									const toggle = category[name];
+								Object.keys(filters).map(category => {
+									const toggle = filters[category] ? false : true;
 									return (
 										<ListGroupItem
-											key={ `${name}_filterBtn_${toggle}`}
-											onClick={ this.clickHandler }
+											key={ `${category}`}
+											className={ `${category}_filterBtn`}
+											onClick={ ()=> this.handleClick(category) }
+											active={ toggle }
 										>
-											{ name }
+											{ category }
 										</ListGroupItem>									
 									)
 								})

@@ -252,54 +252,22 @@ export const testRestaurants = {
 }
 
 export const testFilters = {
-  filters: [
-    {
-      'Sushi Bars': true
-    },
-    {
-      Vegan: true
-    },
-    {
-      'Gluten-Free': true
-    },
-    {
-      Mexican: true
-    },
-    {
-      'Juice Bars & Smoothies': true
-    },
-    {
-      Indian: true
-    },
-    {
-      Barbeque: true
-    },
-    {
-      Bars: true
-    },
-    {
-      'Breakfast & Brunch': true
-    },
-    {
-      Belgian: true
-    },
-    {
-      'American (New)': true
-    },
-    {
-      'Hot Dogs': true
-    },
-    {
-      Gastropubs: true
-    },
-    {
-      'American (Traditional)': true
-    },
-    {
-      'Comfort Food': true
-    },
-    {
-      Southern: true
-    }
-  ]
+  filters: {
+    'Sushi Bars': true,
+    Vegan: true,
+    'Gluten-Free': true,
+    Mexican: true,
+    'Juice Bars & Smoothies': true,
+    Indian: true,
+    Barbeque: true,
+    Bars: true,
+    'Breakfast & Brunch': true,
+    Belgian: true,
+    'American (New)': true,
+    'Hot Dogs': true,
+    Gastropubs: true,
+    'American (Traditional)': true,
+    'Comfort Food': true,
+    Southern: true
+  }
 }
