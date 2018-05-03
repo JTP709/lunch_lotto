@@ -1,9 +1,10 @@
 package restaurantInfo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import restaurantInfo.models.Categories;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RestaurantInfo {
@@ -33,15 +34,17 @@ public class RestaurantInfo {
 
     public String getUrl() { return url; }
 
-    public List<Categories> getCategories() { return categories; };
+    public List<String> getCategories() {
+        return categories.stream()
+                .map(category -> category.getTitle())
+                .collect(Collectors.toList());
+    }
 
     public Location getLocation() {
         return location;
     }
 
-    public String getPrice() {
-        return price;
-    }
+    public String getPrice() { return price; }
 
     public List<String> getPhotos(){
         return photos;
