@@ -69,9 +69,7 @@ class RestaurantList extends Component {
 									      <td>Address:</td>
 									      <td>
 													{ restaurant.location.address1 }<br/>
-									        { restaurant.location.city }<br/>
-									        { restaurant.location.state }<br/>
-									        { restaurant.location.zip_code }<br/>
+									        { restaurant.location.city }, { restaurant.location.state } { restaurant.location.zip_code }
 								        </td>
 									    </tr>
 									  </tbody>

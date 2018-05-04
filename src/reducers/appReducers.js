@@ -24,34 +24,30 @@ const appReducer = (state = initialState, action) => {
         winner: action.payload
       };
     case 'LIST_FILTER':
-      const newFilterObject = state.filters;
+      const newFilterList = { ...state.filters };
       action.payload.map(category => {
-        const catTitle = category.title;
-        newFilterObject[catTitle] = true;
+        const filterKeys = Object.keys(state.filters);
+        if(!filterKeys.includes(category)) {
+          newFilterList[category] = true;
+        }
       });
       return {
         ...state,
-        filters: newFilterObject
+        filters: newFilterList
       };
     case 'SET_FILTER':
-      return {
-        ...state,
-        filters: action.payload
-      }
-    case 'RESTAURANT_FILTER':
-      const filteredList = state.restaurants.filter(restaurant => {
-        // TODO finish this algorithm
-        
-        let filterCategories = [];
+      const newFilteredRestaurantList = state.restaurants.filter(restaurant => {
+        let count = restaurant.categories.length;
         restaurant.categories.map(category => {
-          filterCategories.push(category)
-        })
-
+          if(!action.payload[category])
+            count--
+        });
+        return count === restaurant.categories.length
       });
-      console.log('length: ',filteredList.length);
       return {
         ...state,
-        filteredList
+        filters: action.payload,
+        filteredList: newFilteredRestaurantList
       }
     case 'RESET_FILTER':
       return initialState;

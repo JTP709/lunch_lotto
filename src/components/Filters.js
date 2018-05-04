@@ -7,11 +7,10 @@ import './styles/Filters.css';
 class Filters extends Component {
 
 	handleClick = name => {
-		const { filters, setFilter, restaurantFilter } = this.props;
+		const { filters, setFilter } = this.props;
 		let newFilters = { ...filters };
 		newFilters[name] = !newFilters[name];
 		setFilter(newFilters);
-		restaurantFilter();
 	}
 
 	render(){
@@ -23,7 +22,7 @@ class Filters extends Component {
 					Object.keys(filters).length > 0?
 						<ListGroup key={ `${'filter'}_btn_group` }>
 							{
-								Object.keys(filters).map(category => {
+								Object.keys(filters).sort().map(category => {
 									const toggle = filters[category] ? false : true;
 									return (
 										<ListGroupItem

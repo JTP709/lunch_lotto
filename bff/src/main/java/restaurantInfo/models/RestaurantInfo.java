@@ -19,7 +19,6 @@ public class RestaurantInfo {
     private String display_phone;
     private String alias;
 
-
     public RestaurantInfo() {
 
     }

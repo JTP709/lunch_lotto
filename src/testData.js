@@ -5,18 +5,9 @@ export const testRestaurants = {
       name: 'Currito',
       url: 'https://www.yelp.com/biz/currito-cincinnati-11?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'mexican',
-          title: 'Mexican'
-        },
-        {
-          alias: 'juicebars',
-          title: 'Juice Bars & Smoothies'
-        },
-        {
-          alias: 'newamerican',
-          title: 'American (New)'
-        }
+        'Mexican',
+        'Juice Bars & Smoothies',
+        'American (New)'
       ],
       location: {
         address1: '121 E Fifth St',
@@ -38,10 +29,7 @@ export const testRestaurants = {
       name: 'Akash',
       url: 'https://www.yelp.com/biz/akash-cincinnati?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'indpak',
-          title: 'Indian'
-        }
+        'Indian'
       ],
       location: {
         address1: '24 E 6th St',
@@ -63,10 +51,7 @@ export const testRestaurants = {
       name: 'Eli\'s BBQ',
       url: 'https://www.yelp.com/biz/elis-bbq-cincinnati-4?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'bbq',
-          title: 'Barbeque'
-        }
+        'Barbeque'
       ],
       location: {
         address1: '133 W Elder St',
@@ -88,18 +73,9 @@ export const testRestaurants = {
       name: 'Taste of Belgium - The Banks',
       url: 'https://www.yelp.com/biz/taste-of-belgium-the-banks-cincinnati-2?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'bars',
-          title: 'Bars'
-        },
-        {
-          alias: 'breakfast_brunch',
-          title: 'Breakfast & Brunch'
-        },
-        {
-          alias: 'belgian',
-          title: 'Belgian'
-        }
+        'Bars',
+        'Breakfast & Brunch',
+        'Belgian'
       ],
       location: {
         address1: '16 W Freedom Way',
@@ -121,18 +97,9 @@ export const testRestaurants = {
       name: 'Taste of Belgium',
       url: 'https://www.yelp.com/biz/taste-of-belgium-cincinnati-10?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'belgian',
-          title: 'Belgian'
-        },
-        {
-          alias: 'breakfast_brunch',
-          title: 'Breakfast & Brunch'
-        },
-        {
-          alias: 'newamerican',
-          title: 'American (New)'
-        }
+        'Belgian',
+        'Breakfast & Brunch',
+        'American (New)'
       ],
       location: {
         address1: '1133 Vine St',
@@ -154,18 +121,9 @@ export const testRestaurants = {
       name: 'Senate',
       url: 'https://www.yelp.com/biz/senate-cincinnati-3?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'hotdog',
-          title: 'Hot Dogs'
-        },
-        {
-          alias: 'gastropubs',
-          title: 'Gastropubs'
-        },
-        {
-          alias: 'tradamerican',
-          title: 'American (Traditional)'
-        }
+        'Hot Dogs',
+        'Gastropubs',
+        'American (Traditional)'
       ],
       location: {
         address1: '1212 Vine St',
@@ -187,18 +145,9 @@ export const testRestaurants = {
       name: 'FUSIAN',
       url: 'https://www.yelp.com/biz/fusian-cincinnati?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'sushi',
-          title: 'Sushi Bars'
-        },
-        {
-          alias: 'vegan',
-          title: 'Vegan'
-        },
-        {
-          alias: 'gluten_free',
-          title: 'Gluten-Free'
-        }
+        'Sushi Bars',
+        'Vegan',
+        'Gluten-Free'
       ],
       location: {
         address1: '600 Vine St',
@@ -220,18 +169,9 @@ export const testRestaurants = {
       name: 'The Eagle',
       url: 'https://www.yelp.com/biz/the-eagle-cincinnati?adjust_creative=F5dBdZJZ-wUShWixV1r2Aw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=F5dBdZJZ-wUShWixV1r2Aw',
       categories: [
-        {
-          alias: 'tradamerican',
-          title: 'American (Traditional)'
-        },
-        {
-          alias: 'comfortfood',
-          title: 'Comfort Food'
-        },
-        {
-          alias: 'southern',
-          title: 'Southern'
-        }
+        'American (Traditional)',
+        'Comfort Food',
+        'Southern'
       ],
       location: {
         address1: '1342 Vine St',

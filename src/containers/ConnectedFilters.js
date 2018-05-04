@@ -5,8 +5,7 @@ import Filters from '../components/Filters';
 import { 
   setFilter, 
   listFilter, 
-  resetFilter,
-  restaurantFilter
+  resetFilter
 } from '../actions/actionCreators';
 import { getRestaurants, getFilteredList, getFilters } from '../reducers/appReducers';
 
@@ -21,8 +20,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   setFilter,
   listFilter,
-  resetFilter,
-  restaurantFilter
+  resetFilter
 }
 
 export const ConnectedFilters = connect(
