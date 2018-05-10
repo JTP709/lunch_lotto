@@ -11,10 +11,9 @@ import { ListGroup,
 				 HelpBlock,
 				 Panel,
 				 PanelGroup,
-				 Table
+				 Table,
 } from 'react-bootstrap';
 import './styles/Restaurants.css';
-
 
 class RestaurantList extends Component {
 

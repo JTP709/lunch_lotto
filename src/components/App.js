@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ConnectedRestaurants } from '../containers/ConnectedRestaurants';
 import { ConnectedLotto } from '../containers/ConnectedLotto';
 import { ConnectedFilters } from '../containers/ConnectedFilters';
+import { ConnectedMap } from '../containers/ConnectedMap';
 import { Grid, Col, Row } from 'react-bootstrap';
 import './styles/App.css';
 
@@ -20,6 +21,11 @@ class App extends Component {
           <Row>
             <Col xs={12} md={12}>
               <ConnectedLotto />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <ConnectedMap />
             </Col>
           </Row>
           <Row>
